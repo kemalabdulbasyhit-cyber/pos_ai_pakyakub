@@ -1,0 +1,344 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Racing';
+  font-weight: 700;
+  font-style: italic;
+  src: local('Impact');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* Custom Racing Typography */
+.racing-font {
+  font-family: 'Racing', Impact, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Carbon Fiber Background Pattern */
+.carbon-fiber {
+  background-color: #1a1a1a;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+}
+
+/* Neon Glow Effects */
+.neon-orange {
+  box-shadow: 
+    0 0 5px rgba(255, 90, 0, 0.5),
+    0 0 10px rgba(255, 90, 0, 0.3),
+    0 0 20px rgba(255, 90, 0, 0.2);
+}
+
+.neon-orange-intense {
+  box-shadow: 
+    0 0 10px rgba(255, 90, 0, 0.8),
+    0 0 20px rgba(255, 90, 0, 0.6),
+    0 0 30px rgba(255, 90, 0, 0.4),
+    0 0 40px rgba(255, 90, 0, 0.2);
+}
+
+.neon-blue {
+  box-shadow: 
+    0 0 5px rgba(0, 102, 204, 0.5),
+    0 0 10px rgba(0, 102, 204, 0.3),
+    0 0 20px rgba(0, 102, 204, 0.2);
+}
+
+.neon-yellow {
+  box-shadow: 
+    0 0 5px rgba(255, 204, 0, 0.5),
+    0 0 10px rgba(255, 204, 0, 0.3),
+    0 0 20px rgba(255, 204, 0, 0.2);
+}
+
+/* Chrome/Metallic Border Effect */
+.chrome-border {
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+    linear-gradient(135deg, #666, #ddd, #666, #ddd) border-box;
+}
+
+/* Spinning Wheels Animation */
+@keyframes spin-wheels {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-wheels {
+  animation: spin-wheels 1s linear infinite;
+}
+
+/* Speed Lines Effect */
+@keyframes speed-lines {
+  0% {
+    transform: translateX(0) scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100px) scaleX(1);
+    opacity: 0;
+  }
+}
+
+.speed-lines::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to left, transparent, #ff5a00);
+  animation: speed-lines 0.5s ease-out;
+}
+
+/* Particle Trail Effect */
+@keyframes particle-trail {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Card Lift Animation */
+.card-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-8px) rotateX(5deg);
+  z-index: 10;
+}
+
+/* Zoom to Cart Animation */
+@keyframes zoom-to-cart {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.5) translate(var(--cart-x), var(--cart-y));
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0) translate(var(--cart-x), var(--cart-y));
+    opacity: 0;
+  }
+}
+
+.zoom-to-cart {
+  animation: zoom-to-cart 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide Out Animation */
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.slide-out {
+  animation: slide-out 0.3s ease-out forwards;
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px rgba(255, 90, 0, 0.5),
+      0 0 20px rgba(255, 90, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(255, 90, 0, 0.8),
+      0 0 40px rgba(255, 90, 0, 0.5);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Victory Lap Animation */
+@keyframes victory-lap {
+  0% {
+    transform: translateX(-100vw) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100vw) rotate(360deg);
+  }
+}
+
+.victory-lap {
+  animation: victory-lap 1.5s ease-in-out;
+}
+
+/* Gauge/Meter Styles */
+.gauge {
+  position: relative;
+  overflow: hidden;
+}
+
+.gauge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #ff5a00, #ffcc00);
+  transition: width 0.3s ease;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff5a00, #0066cc);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff7a30, #0088ff);
+}
+
+/* Skew Transform for Racing Look */
+.skew-racing {
+  transform: skewX(-5deg);
+}
+
+.unskew {
+  transform: skewX(5deg);
+}
+
+/* Grid Glow Effect */
+.grid-glow {
+  background-image: 
+    linear-gradient(rgba(255, 90, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 90, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Shine Effect */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+/* Rarity Badge Colors */
+.rarity-common {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+
+.rarity-premium {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.rarity-treasure-hunt {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.rarity-super-treasure-hunt {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Number Display - Digit Style */
+.digit-display {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: linear-gradient(180deg, #ff5a00, #cc4700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Press Effect */
+.btn-press:active {
+  transform: scale(0.95);
+}
+
+/* Transition utilities */
+.transition-all-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
